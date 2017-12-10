@@ -2,10 +2,19 @@
   <div class="alert alert-warning" *ngIf="item.CountdownInDays < 10">
     <strong>Notification!</strong>
     <br />
-    <p>
+    <p *ngIf="item.CountdownInDays > 0">
       Your accreditation for the {{ item.Name }} tool expires on {{ item.ExpiryDate | date:'dd MMMM yyyy' }}. Please make sure
       that you repeat your {{ item.Name }} exam before {{ item.ExpiryDate | date:'dd MMMM yyyy' }} to ensure you are able
       to score your patients after {{ item.ExpiryDate | date:'dd MMMM yyyy' }}. 
+
+      <!-- To refresh your knowledge of the {{ item.Name
+      }} you may watch these
+      <a href="#">training videos</a> -->
+    </p>
+    <p *ngIf="item.CountdownInDays < 0">
+      Your accreditation for the {{ item.Name }} tool expired on {{ item.ExpiryDate | date:'dd MMMM yyyy' }}. Please make sure
+      that you repeat your {{ item.Name }} exam to ensure you are able
+      to score your patients. 
 
       <!-- To refresh your knowledge of the {{ item.Name
       }} you may watch these
